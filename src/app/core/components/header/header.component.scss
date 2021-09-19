@@ -1,0 +1,23 @@
+@import "_variables";
+
+header {
+  color: $primary;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  margin-bottom: 34px;
+  font-weight: lighter;
+}
+
+.bold {
+  position: relative;
+  font-weight: bold;
+  display: inline-block;
+}
+.bold::after {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 54px;
+  background-color: $primary;
+}

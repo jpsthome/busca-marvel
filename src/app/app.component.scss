@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 32px);
+  height: calc(100vh - 32px);
+  align-items: stretch;
+  margin: 20px 42px 0px 42px;
+}
+.content {
+  flex: auto;
+}
