@@ -15,7 +15,7 @@ const API_URL = environment.API_URL;
 export class CharactersService {
   constructor(private http: HttpClient) {}
 
-  getHeroes(page: number = 0): Observable<Character[]> {
+  getCharacters(page: number = 1): Observable<Character[]> {
     return this.http
       .get<MarvelResponse<Character>>(`${API_URL}/characters`, {
         params: {
@@ -23,6 +23,34 @@ export class CharactersService {
           offset: page * 10,
         },
       })
+      .pipe(
+        map((res) => {
+          console.log(res);
+          return res.data.results;
+        })
+      );
+  }
+
+  getCharactersByName(name: string, page: number = 0): Observable<Character[]> {
+    return this.http
+      .get<MarvelResponse<Character>>(`${API_URL}/characters`, {
+        params: {
+          limit: 10,
+          offset: page * 10,
+          nameStartsWith: name,
+        },
+      })
+      .pipe(
+        map((res) => {
+          console.log(res);
+          return res.data.results;
+        })
+      );
+  }
+
+  getCharacterById(characterId: number): Observable<Character[]> {
+    return this.http
+      .get<MarvelResponse<Character>>(`${API_URL}/characters/${characterId}`)
       .pipe(
         map((res) => {
           console.log(res);
