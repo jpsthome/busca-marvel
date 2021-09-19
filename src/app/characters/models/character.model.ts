@@ -1,9 +1,8 @@
 import { Collection } from './collection.model';
 import { MarvelUrl } from './marvel-url.model';
-;
 import { Thumbnail } from './thumbnail.model';
 
-export interface Hero {
+export interface Character {
   id: number;
   description: string;
   modified: Date;

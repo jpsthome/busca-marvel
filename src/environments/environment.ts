@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://gateway.marvel.com//v1/public/',
-  API_PUBLIC_KEY: '<Your public API key here>',
-  API_PRIVATE_KEY: '<Your private API key here>',
+  API_URL: 'http://gateway.marvel.com/v1/public',
+  API_PUBLIC_KEY: '946a5fe71ed98bec2668941a6dd3f151',
+  API_PRIVATE_KEY: 'f4f4abb3d39d7eec9b11caa3211d2535b08b60d2',
 };
 
 /*
