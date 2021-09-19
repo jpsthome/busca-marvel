@@ -1,0 +1,54 @@
+@import "_variables";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+thead th {
+  background-color: $primary;
+  color: #fff;
+  font-weight: 500;
+  text-align: left;
+  padding: 10px;
+  line-height: 17px;
+}
+table th:not(:first-child) {
+  position: relative;
+  padding-left: 10px;
+}
+table th:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  left: -10px;
+  z-index: 2;
+}
+table tbody tr {
+  border-bottom: 2px solid rgba($primary-rgb, 0.2);
+  transition: background-color 250ms;
+}
+@media (max-width: 768px) {
+  table tbody tr {
+    border-bottom: 2px solid $primary;
+  }
+}
+table tbody tr:hover {
+  background-color: rgba($primary-rgb, 0.1);
+  cursor: pointer;
+}
+.column-one {
+  width: 25%;
+}
+.column-two {
+  width: 25%;
+}
+.column-three {
+  width: 50%;
+}

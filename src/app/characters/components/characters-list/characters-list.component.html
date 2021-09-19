@@ -1,0 +1,31 @@
+
+<ng-container *ngIf="loading; else lista">
+	
+		<marvel-loading></marvel-loading>
+	
+</ng-container>
+<ng-template #lista>
+	<table>
+		<colgroup>
+			<col class="column-one">	
+			<col class="column-two hide-md">
+			<col class="column-three hide-lg">	
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col" id="characters">Personagem</th>
+				<th scope="col" id="series" class="hide-md">Séries</th>
+				<th scope="col" id="events" class="hide-lg">Eventos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr 
+				*ngFor="let character of characters" 
+				(click)="characterDetail(character.id)" 
+				marvel-character-row 
+				[character]="character"
+			>
+			</tr>
+		</tbody>
+	</table>
+</ng-template>

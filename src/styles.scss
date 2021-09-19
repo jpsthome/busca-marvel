@@ -7,3 +7,14 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+@media (max-width: 1024px) {
+  .hide-lg {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .hide-md {
+    display: none;
+  }
+}

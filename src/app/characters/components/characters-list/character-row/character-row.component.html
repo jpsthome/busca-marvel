@@ -1,0 +1,25 @@
+
+<td>
+	<img class="avatar" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}">
+	{{character.name}}
+</td>
+<td class="center hide-md">
+	<ng-container *ngIf="character.series.available > 0; else emptySeries">
+		<div *ngFor="let series of character.series.items | slice:0:3;">
+			{{series.name}}
+		</div>						
+	</ng-container>
+	<ng-template #emptySeries>
+		Sem séries cadastradas para esse personagem
+	</ng-template>				
+</td>
+<td class="hide-lg">				
+	<ng-container *ngIf="character.events.available > 0; else emptyEvents">
+		<div *ngFor="let events of character.events.items | slice:0:3;">
+			{{events.name}}
+		</div>						
+	</ng-container>
+	<ng-template #emptyEvents>
+		Sem eventos cadastrados para esse personagem
+	</ng-template>
+</td>
