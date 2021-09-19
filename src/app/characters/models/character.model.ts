@@ -8,7 +8,7 @@ export interface Character {
   modified: Date;
   thumbnail: Thumbnail;
   resourceURI: string;
-  events: Collection[];
-  series: Collection[];
+  events: Collection;
+  series: Collection;
   urls: MarvelUrl[];
 }
