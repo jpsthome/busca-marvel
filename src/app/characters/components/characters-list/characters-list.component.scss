@@ -43,12 +43,6 @@ table tbody tr:hover {
   background-color: rgba($primary-rgb, 0.1);
   cursor: pointer;
 }
-table td {
-  padding: 20px 10px;
-}
-td > * {
-  vertical-align: middle;
-}
 .column-one {
   width: 25%;
 }
@@ -57,11 +51,4 @@ td > * {
 }
 .column-three {
   width: 50%;
-}
-.avatar {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  margin-right: 25px;
-  line-height: 58px;
 }

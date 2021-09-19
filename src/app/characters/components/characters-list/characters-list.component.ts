@@ -9,6 +9,7 @@ import { Character } from '@characters/models/character.model';
 })
 export class CharactersListComponent implements OnInit {
   characters: Character[] = [];
+  loading = true;
   constructor(private characterService: CharactersService) {}
 
   ngOnInit(): void {
@@ -17,8 +18,15 @@ export class CharactersListComponent implements OnInit {
 
   getCharacters() {
     this.characterService.getCharacters().subscribe((res) => {
+      this.loading = false;
       this.characters = res;
       console.log(this.characters);
+    });
+  }
+
+  characterDetail(characterId: number) {
+    this.characterService.getCharacterById(characterId).subscribe((res) => {
+      console.log(res);
     });
   }
 }
