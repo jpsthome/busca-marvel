@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://gateway.marvel.com//v1/public/',
-  apiPublicKey: '<Your public API key here>',
-  apiPrivateKey: '<Your private API key here>',
+  API_URL: 'http://gateway.marvel.com//v1/public/',
+  API_PUBLIC_KEY: '<Your public API key here>',
+  API_PRIVATE_KEY: '<Your private API key here>',
 };
 
 /*
