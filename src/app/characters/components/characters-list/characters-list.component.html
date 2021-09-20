@@ -1,8 +1,6 @@
 <marvel-characters-search
 	(charactersNameEmitter)="updateCharactersName($event)"
-
 >
-
 </marvel-characters-search>
 
 <ng-container *ngIf="loading; else lista">
@@ -34,4 +32,16 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<div class="pagination">
+		<div class="arrow-back" [ngClass]="{'diseabled':currentPage === 0}"></div>
+		<div class="page" 
+			*ngFor="let page of pageCounter(pages); let i = index;" 
+			(click)="getCharactersPage(i)" 
+			[ngClass]="{'active':currentPage === i}"
+		>
+			{{i+1}}
+		</div>
+		<div class="arrow-next" [ngClass]="{'diseabled':currentPage === pages}"></div>
+	</div>
 </ng-template>
