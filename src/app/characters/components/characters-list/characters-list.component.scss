@@ -78,6 +78,7 @@ table tbody tr:hover {
   align-items: center;
   gap: 20px;
   margin-top: 25px;
+  margin-bottom: 16px;
 }
 .page {
   color: $primary;
@@ -95,4 +96,16 @@ table tbody tr:hover {
 .page.active {
   color: #fff;
   background-color: $primary;
+}
+
+@media (max-width: 768px) {
+  .arrow-back {
+    margin-right: 40px;
+  }
+  .arrow-next {
+    margin-left: 40px;
+  }
+  .pagination {
+    margin-bottom: 24px;
+  }
 }
