@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env';
 import { Character } from '@characters/models/character.model';
-import { MarvelResponse } from '@core/models/marvel-response.model';
+import {
+  MarvelResponse,
+  MarvelResponseData,
+} from '@core/models/marvel-response.model';
 
 const API_URL = environment.API_URL;
 
@@ -15,7 +18,7 @@ const API_URL = environment.API_URL;
 export class CharactersService {
   constructor(private http: HttpClient) {}
 
-  getCharacters(page: number = 0): Observable<Character[]> {
+  getCharacters(page: number = 0): Observable<MarvelResponseData<Character>> {
     return this.http
       .get<MarvelResponse<Character>>(`${API_URL}/characters`, {
         params: {
@@ -26,12 +29,15 @@ export class CharactersService {
       .pipe(
         map((res) => {
           console.log(res);
-          return res.data.results;
+          return res.data;
         })
       );
   }
 
-  getCharactersByName(name: string, page: number = 0): Observable<Character[]> {
+  getCharactersByName(
+    name: string,
+    page: number = 0
+  ): Observable<MarvelResponseData<Character>> {
     return this.http
       .get<MarvelResponse<Character>>(`${API_URL}/characters`, {
         params: {
@@ -43,18 +49,20 @@ export class CharactersService {
       .pipe(
         map((res) => {
           console.log(res);
-          return res.data.results;
+          return res.data;
         })
       );
   }
 
-  getCharacterById(characterId: number): Observable<Character[]> {
+  getCharacterById(
+    characterId: number
+  ): Observable<MarvelResponseData<Character>> {
     return this.http
       .get<MarvelResponse<Character>>(`${API_URL}/characters/${characterId}`)
       .pipe(
         map((res) => {
           console.log(res);
-          return res.data.results;
+          return res.data;
         })
       );
   }

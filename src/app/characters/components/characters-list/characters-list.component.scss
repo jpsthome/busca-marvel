@@ -52,3 +52,47 @@ table tbody tr:hover {
 .column-three {
   width: 50%;
 }
+.arrow-back {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid #d42026;
+  margin-right: -8px;
+}
+.arrow-next {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid #d42026;
+  margin-left: -8px;
+}
+.diseabled {
+  opacity: 0.2;
+}
+.pagination {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+.page {
+  color: $primary;
+  border: solid 1px $primary;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.page:hover {
+  background-color: rgba($primary-rgb, 0.12);
+  cursor: pointer;
+}
+.page.active {
+  color: #fff;
+  background-color: $primary;
+}
