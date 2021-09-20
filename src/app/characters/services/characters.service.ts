@@ -1,3 +1,5 @@
+import { Series } from './../models/series.model';
+import { MarvelEvent } from './../models/marvel-event.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -65,5 +67,24 @@ export class CharactersService {
           return res.data;
         })
       );
+  }
+
+  getEventsByURI(
+    resourceURI: string
+  ): Observable<MarvelResponseData<MarvelEvent>> {
+    return this.http.get<MarvelResponse<MarvelEvent>>(resourceURI).pipe(
+      map((res) => {
+        console.log(res);
+        return res.data;
+      })
+    );
+  }
+  getSeriesByURI(resourceURI: string): Observable<MarvelResponseData<Series>> {
+    return this.http.get<MarvelResponse<Series>>(resourceURI).pipe(
+      map((res) => {
+        console.log(res);
+        return res.data;
+      })
+    );
   }
 }
