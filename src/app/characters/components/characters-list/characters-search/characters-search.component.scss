@@ -1,0 +1,14 @@
+@import "_variables";
+
+label {
+  color: $primary;
+  display: block;
+}
+input {
+  width: 400px;
+  border: 1px solid #a5a5a5;
+  margin-bottom: 34px;
+  padding: 5px;
+  height: 31px;
+  border-radius: 5px;
+}
