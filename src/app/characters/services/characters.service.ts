@@ -15,7 +15,7 @@ const API_URL = environment.API_URL;
 export class CharactersService {
   constructor(private http: HttpClient) {}
 
-  getCharacters(page: number = 1): Observable<Character[]> {
+  getCharacters(page: number = 0): Observable<Character[]> {
     return this.http
       .get<MarvelResponse<Character>>(`${API_URL}/characters`, {
         params: {
