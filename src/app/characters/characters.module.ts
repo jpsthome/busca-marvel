@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CharactersSearchComponent } from './components/characters-list/characters-search/characters-search.component';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -13,6 +15,6 @@ import { CharacterDetailsComponent } from './components/character-details/charac
     CharactersSearchComponent,
     CharacterDetailsComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, FontAwesomeModule, RouterModule],
 })
 export class CharactersModule {}
