@@ -1,0 +1,66 @@
+@import "_variables";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid $primary;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.sheet {
+  border: 2px solid $primary;
+  flex: 1;
+  text-align: center;
+}
+.sheet h2 {
+  border-bottom: 2px solid $primary;
+  text-align: center;
+}
+.sheet * {
+  padding: 5px;
+}
+.sheet img {
+  width: 300px;
+  vertical-align: bottom;
+}
+
+.info {
+  flex: 3;
+}
+.arrow::ng-deep svg {
+  transform: rotate(90deg);
+  transition: transform 250ms;
+}
+.expanded::ng-deep svg {
+  transform: rotate(270deg);
+  transition: transform 250ms;
+}
+.expanded {
+  height: 100%;
+}
+.header {
+  display: flex;
+  color: $primary;
+  border-bottom: 2px solid $primary;
+  align-items: center;
+  cursor: pointer;
+}
+.info__content {
+  transition: height 250ms;
+  height: 0px;
+  overflow: hidden;
+}
+.info__content.expanded {
+  height: 100%;
+}
+.back {
+  color: $primary;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+}

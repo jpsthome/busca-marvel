@@ -1,1 +1,49 @@
-<p>character-details works!</p>
+
+<a class="back" [routerLink]="['/']">
+	<h2>
+		<fa-icon [icon]="faArrowLeft"></fa-icon>
+		Voltar
+	</h2>
+</a>
+<div class="container">	
+	<div class="info">
+		<div>
+			<div class="header" (click)="expandEvents()">
+				<h2>Eventos</h2>
+				<span class="spacer"></span>
+				<fa-icon class="arrow" 
+				[ngClass]="{'expanded': isEventsExpanded}"
+				[icon]="faPlay" size='xs'></fa-icon>
+			</div>
+			<div 
+				class="info__content"
+				[ngClass]="{'expanded': isEventsExpanded}"
+			>
+				<div *ngIf="events.length === 0">Nenhum evento cadastrado</div>
+				<p *ngFor="let event of events">{{event.title}}</p>				
+			</div>
+		</div>
+		<div>
+			<div class="header" (click)="expandSeries()">
+				<h2>Series</h2>
+				<span class="spacer"></span>
+				<fa-icon class="arrow" 
+				[ngClass]="{'expanded': isSeriesExpanded}"
+				[icon]="faPlay" size='xs'></fa-icon>
+			</div>
+		
+			<div 
+				class="info__content" 
+				[ngClass]="{'expanded': isSeriesExpanded}"
+			>
+				<div *ngIf="series.length === 0">Nenhuma série cadastrada</div>
+				<p *ngFor="let series of series">{{series.title}}</p>				
+			</div>
+		</div>
+	</div>
+	<div class="sheet">
+		<h2>{{character.name}} </h2>
+		<img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}">
+		<p>{{character.description}}</p>
+	</div>
+</div>
