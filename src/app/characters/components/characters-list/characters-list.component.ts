@@ -9,6 +9,7 @@ import { Character } from '@characters/models/character.model';
 })
 export class CharactersListComponent implements OnInit {
   characters: Character[] = [];
+  charactersName: string = '';
   loading = true;
   constructor(private characterService: CharactersService) {}
 
@@ -28,5 +29,21 @@ export class CharactersListComponent implements OnInit {
     this.characterService.getCharacterById(characterId).subscribe((res) => {
       console.log(res);
     });
+  }
+
+  updateCharactersName(e: string) {
+    this.charactersName = e;
+    this.loading = true;
+    if (e) {
+      this.characterService.getCharactersByName(e).subscribe((res) => {
+        this.characters = res;
+        this.loading = false;
+      });
+    } else {
+      this.characterService.getCharacters().subscribe((res) => {
+        this.characters = res;
+        this.loading = false;
+      });
+    }
   }
 }
