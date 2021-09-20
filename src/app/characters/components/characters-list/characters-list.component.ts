@@ -1,6 +1,7 @@
 import { CharactersService } from './../../services/characters.service';
 import { Component, OnInit } from '@angular/core';
 import { Character } from '@characters/models/character.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'marvel-characters-list',
@@ -14,7 +15,10 @@ export class CharactersListComponent implements OnInit {
   pages: number = 0;
   currentPage: number = 0;
   lastPage: number = 5;
-  constructor(private characterService: CharactersService) {}
+  constructor(
+    private characterService: CharactersService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getCharacters();
@@ -24,29 +28,22 @@ export class CharactersListComponent implements OnInit {
     this.characterService.getCharacters().subscribe((res) => {
       this.loading = false;
       this.characters = res.results;
-      console.log(this.characters);
       this.pages = Math.floor(res.total / 10);
-      console.log(this.pages);
     });
   }
 
   characterDetail(characterId: number) {
-    this.characterService.getCharacterById(characterId).subscribe((res) => {
-      console.log(res);
-    });
+    this._router.navigate(['', characterId]);
   }
 
   pageCounter(i: number) {
-    console.log(this.currentPage);
     const array = [
       this.currentPage,
       this.currentPage + 1,
       this.currentPage + 2,
       this.currentPage + 3,
       this.currentPage + 4,
-      this.currentPage + 5,
     ];
-    console.log(array);
     return array;
   }
 
@@ -64,7 +61,6 @@ export class CharactersListComponent implements OnInit {
     } else {
       this.characterService.getCharacters(page).subscribe((res) => {
         this.characters = res.results;
-        console.log(res);
         this.loading = false;
       });
     }
